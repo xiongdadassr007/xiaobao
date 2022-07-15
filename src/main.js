@@ -1,12 +1,57 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import api from "./api";
+import {
+  Container,
+  Header,
+  Aside,
+  Main,
+  Col,
+  Row,
+  Menu,
+  Submenu,
+  MenuItem,
+  MenuItemGroup,
+  Select,
+  Option,
+  Form,
+  FormItem,
+  Input,
+  Button,
+  Table,
+  TableColumn,
+  Pagination,
+  Dialog,
+} from "element-ui";
+Vue.use(Container);
+Vue.use(Header);
+Vue.use(Aside);
+Vue.use(Col);
+Vue.use(Row);
+Vue.use(Menu);
+Vue.use(Submenu);
+Vue.use(MenuItem);
+Vue.use(MenuItemGroup);
+Vue.use(Main);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+Vue.use(Button);
+Vue.use(Table);
+Vue.use(TableColumn);
+Vue.use(Pagination);
+Vue.use(Dialog);
 
-Vue.config.productionTip = false
+Vue.prototype.api = api;
+
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");

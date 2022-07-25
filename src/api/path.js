@@ -6,5 +6,5 @@ export default {
   query: baseURL + "/RectificationTrack/query",
 
   // 机构查询下拉框接口
-  insti: baseURL + "/Org/query",
+  detail: baseURL + "/RectificationTrack/detail",
 };

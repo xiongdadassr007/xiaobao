@@ -1,3 +1,4 @@
+// 整改指标确认追踪-查询页面
 <template>
     <div class="taskOne-container">
         <div class="titlediv">
@@ -33,6 +34,7 @@ export default {
     height: 904px;
     background: #ffffff;
     border-radius: 8px;
+    box-sizing: border-box;
     padding: 60px 0 0 19px;
     // 整个上标题块 
     .titlediv {
@@ -52,7 +54,6 @@ export default {
         // 上标题修改
         .titlespan {
             font-size: 18px;
-            font-family: Source Han Sans CN;
             font-weight: 400;
             color: #333333;
         }

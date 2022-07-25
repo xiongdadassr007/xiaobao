@@ -2,7 +2,7 @@
 <template>
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="发起机构: ">
-            <el-select v-model="formInline.institution" filterable placeholder="">
+            <el-select clearable v-model="formInline.institution" filterable placeholder="">
                 <el-option v-for="item in selectOneOptions" :key="item.orgId" :label="item.orgName" :value="item.orgId">
                 </el-option>
             </el-select>
@@ -11,7 +11,7 @@
             <el-input v-model="formInline.taskName"></el-input>
         </el-form-item>
         <el-form-item label="牵头部队: " style="margin-right: 23px">
-            <el-select v-model="formInline.part" filterable placeholder="">
+            <el-select clearable v-model="formInline.part" filterable placeholder="">
                 <el-option v-for="item in selectTwoOptions" :key="item.departId" :label="item.departName"
                     :value="item.departId">
                 </el-option>
@@ -34,7 +34,7 @@ export default {
             // 发起机构选项数据
             selectOneOptions: [
                 {
-                    orgId: "黄金糕",
+                    orgId: "1",
                     orgName: "黄金糕",
                 },  
             ],
@@ -63,7 +63,7 @@ export default {
                     'Content-Type': 'application/json'
                 }
             }).then((res)=> {
-                console.log(3333333, res);
+                // console.log(3333333, res);
                 if(res.data.success == true) {
                     this.selectOneOptions = res.data.data
                 }
@@ -73,9 +73,10 @@ export default {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+               
             }).then((res)=> {
-                console.log(44444, res);
+                // console.log(44444, res);
                 if(res.data.success == true) {
                     this.selectTwoOptions = res.data.data
                 }
@@ -112,8 +113,6 @@ export default {
 
 
 .demo-form-inline {
-    // 字体样式替换
-    font-family: Source Han Sans CN;
     font-weight: 400;
     // 替换输入框label字体
     /deep/.el-form-item__label {

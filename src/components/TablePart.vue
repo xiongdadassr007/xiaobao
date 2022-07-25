@@ -23,15 +23,13 @@
                 </el-table-column>
                 <el-table-column prop="departName" label="牵头部门" width="440" align="center">
                 </el-table-column>
-                <el-table-column prop="detail" label="明细" width="220" align="center">
-                    <!-- <template slot-scope="scope">
-                        <router-link to="/">
-                            <div style="color: #84BA6E">
-                                <i class="el-icon-document"></i>
-                                <span>明细</span>
-                            </div>
-                        </router-link>
-                    </template> -->
+                <el-table-column prop="detail" label="明细" width="219" align="center">
+                    <template slot-scope="scope">
+                        <div style="color: #84BA6E;" @click="getDetail(scope)">
+                            <i class="el-icon-document"></i>
+                            <span>明细</span>
+                        </div>
+                    </template>
                 </el-table-column>
             </el-table>
 
@@ -102,7 +100,7 @@ export default {
             }
             this.api.query.all(term).then((res) => {
                 if (res.data.success == true) {
-                    // console.log(4444, res.data);
+                    // console.log('打印请求表格数据', res.data);
                     this.tableData = res.data.data
                     this.total = res.data.total
                 } else {
@@ -121,7 +119,7 @@ export default {
             }
             this.api.query.all(term).then((res) => {
                 if (res.data.success == true) {
-                    // console.log(5555, res.data);
+                    // console.log('打印分页表格数据', res.data);
                     this.tableData = res.data.data
                     this.total = res.data.total
                 } else {
@@ -131,12 +129,20 @@ export default {
         },
         // 查询条件回传方法
         queryData(val) {
-            console.log(999, val);
+            console.log('打印回传条件数据', val);
             this.currentPage = 1
             this.pageSize = val.pageNum
             this.total = val.total
             this.tableData = val.data
         },
+
+        // 获取详细页方法
+        getDetail(scope) {
+            console.log('获取draftNo', scope.row.draftNo);
+            this.$router.push({path:'/taskDetail', query: {
+                draftNo: scope.row.draftNo
+            }})
+        }
     },
     created() {
         this.changePaginationText();

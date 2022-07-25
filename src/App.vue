@@ -23,7 +23,11 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+body {
+    // 设置全局字体样式
+    font-family: "SourceHanSansCN-Regular", Arial, Helvetica, sans-serif;
+}
 .el-header {
     background-color: #6E96E9;
     color: #333;

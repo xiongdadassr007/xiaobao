@@ -24,6 +24,10 @@ import {
   TableColumn,
   Pagination,
   Dialog,
+  DatePicker,
+  Upload,
+  MessageBox,
+  Message,
 } from "element-ui";
 Vue.use(Container);
 Vue.use(Header);
@@ -45,10 +49,14 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Pagination);
 Vue.use(Dialog);
+Vue.use(DatePicker);
+Vue.use(Upload);
 
 Vue.prototype.api = api;
 
 Vue.config.productionTip = false;
+Vue.prototype.$confirm = MessageBox.confirm;
+Vue.prototype.$message = Message;
 
 new Vue({
   router,
